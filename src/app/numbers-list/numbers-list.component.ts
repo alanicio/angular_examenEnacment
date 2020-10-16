@@ -17,15 +17,15 @@ export class NumbersListComponent implements OnInit {
     let color;
     switch (multiple) {
       case '3':
-        color = 'green';
+        color = '#74bd25';
         break;
 
       case '5':
-        color = 'red';
+        color = '#ae1c1c';
         break;
 
       case '7':
-        color = 'blue';
+        color = '#24a1cd';
         break;
 
       default:
