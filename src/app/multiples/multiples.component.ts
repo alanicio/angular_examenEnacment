@@ -42,10 +42,22 @@ export class MultiplesComponent implements OnInit {
 
       addingMultiple += multiple;
     }
-
+    /* Storing list of multiples as a prop */
     this.rangeOfNumbers.multiplesList = {
       ...multiplesList,
       [multiple.toString()]: arrrayOfMultiples,
     };
   }
+
+  setLimitNumber(number: number) {
+    this.rangeOfNumbers.limitNumber = number;
+  }
+
+  /* This is the function for the exam that works according the instructions given */
+  examFunction = (limit: number) => {
+    this.setLimitNumber(limit);
+    this.getMultiplesInRange(3);
+    this.getMultiplesInRange(5);
+    this.getMultiplesInRange(7);
+  };
 }
