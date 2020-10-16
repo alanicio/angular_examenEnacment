@@ -1,1 +1,8 @@
-<get-number [rangeOfNumbers]="rangeOfNumbers" [examFunction]="examFunction"></get-number>
+<get-number [examFunction]="examFunction"></get-number>
+<div *ngIf="validateLimitNumbers()">
+  <numbers-list
+    *ngFor="let multiple of multiplesListAsArray()"
+    [multiple]="multiple"
+    [numbers]="multiplesList[multiple]"
+  ></numbers-list>
+</div>

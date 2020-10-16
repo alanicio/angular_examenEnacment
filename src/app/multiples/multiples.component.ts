@@ -1,34 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
-type RangeOfNumbers = {
-  initialNumber: number;
-  limitNumber: number;
-  multiplesList: Object;
-};
-
 @Component({
   selector: 'multiples',
   templateUrl: './multiples.component.html',
   styleUrls: ['./multiples.component.scss'],
 })
 export class MultiplesComponent implements OnInit {
-  public rangeOfNumbers: RangeOfNumbers;
+  public initialNumber: number;
+  public limitNumber: number;
+  public multiplesList: Object;
 
   constructor() {
-    const initialNumber = 0;
-    const limitNumber = 0;
-    const multiplesList = {};
-    this.rangeOfNumbers = {
-      initialNumber,
-      limitNumber,
-      multiplesList,
-    };
+    this.initialNumber = 0;
+    this.limitNumber = 0;
+    this.multiplesList = {};
   }
 
   ngOnInit(): void {}
 
   getMultiplesInRange(multiple: number) {
-    const { initialNumber, limitNumber, multiplesList } = this.rangeOfNumbers;
+    const { initialNumber, limitNumber, multiplesList } = this;
     let arrrayOfMultiples = [];
     let addingMultiple = multiple;
     /* Entering to the starting range */
@@ -43,14 +34,27 @@ export class MultiplesComponent implements OnInit {
       addingMultiple += multiple;
     }
     /* Storing list of multiples as a prop */
-    this.rangeOfNumbers.multiplesList = {
+    this.multiplesList = {
       ...multiplesList,
       [multiple.toString()]: arrrayOfMultiples,
     };
   }
 
   setLimitNumber(number: number) {
-    this.rangeOfNumbers.limitNumber = number;
+    this.limitNumber = number;
+  }
+
+  validateLimitNumbers() {
+    const { initialNumber, limitNumber } = this;
+    if (initialNumber > limitNumber || isNaN(initialNumber) || isNaN(limitNumber) || initialNumber < 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  multiplesListAsArray() {
+    return Object.keys(this.multiplesList);
   }
 
   /* This is the function for the exam that works according the instructions given */

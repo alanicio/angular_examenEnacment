@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MultiplesComponent } from './multiples/multiples.component';
 import { GetNumberComponent } from './get-number/get-number.component';
+import { NumbersListComponent } from './numbers-list/numbers-list.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,7 @@ import { GetNumberComponent } from './get-number/get-number.component';
     AboutModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
-  declarations: [AppComponent, MultiplesComponent, GetNumberComponent],
+  declarations: [AppComponent, MultiplesComponent, GetNumberComponent, NumbersListComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
